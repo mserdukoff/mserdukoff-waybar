@@ -1,0 +1,93 @@
+//  __  __       _   _                       _                  ____  
+// |  \/  | __ _| |_| |_   __      ____ _ _   _| |__   __ _ _ __|___ \ 
+// | |\/| |/ _` | __| __| \ \ /\ / / _` | | | | '_ \ / _` | '__| __) |
+// | |  | | (_| | |_| |_   \ V  V / (_| | |_| | |_) | (_| | |   / __/ 
+// |_|  |_|\__,_|\__|\__|   \_/\_/ \__,_|\__, |_.__/ \__,_|_|  |_____|
+//                                       |___/                       
+//  
+// by Matt (2024) based on ML4W Minimal by Stephan Raabe
+// ----------------------------------------------------- 
+//
+{
+    // General Settings
+    "layer": "top",
+    "margin-bottom": 0,
+    "margin-left": 0,
+    "margin-right": 0,    
+    "spacing": 0,
+
+    // Load Modules
+    "include": [
+        "~/.config/waybar/modules.json"
+    ],
+
+    // Modules Left
+    "modules-left": [
+        "custom/arch",
+        "custom/weather"
+    ],
+
+    // Modules Center
+    "modules-center": [
+        "hyprland/workspaces"
+    ],
+
+    // Modules Right    
+    "modules-right": [
+        "tray",
+        "custom/updates",
+        "pulseaudio",
+        "bluetooth",
+        "network",
+        "battery", 
+        "clock",
+        "custom/notification",
+        "custom/exit"
+    ],
+
+    // Custom Arch Logo
+    "custom/arch": {
+        "format": "󰣇",
+        "tooltip-format": "Arch Linux",
+        "on-click": "fuzzel"
+    },
+
+    // Custom Weather
+    "custom/weather": {
+        "format": "{}",
+        "tooltip": true,
+        "interval": 1800,
+        "exec": "~/.config/waybar/themes/matt-waybar3/scripts/wttr.py",
+        "return-type": "json",
+        "signal": 8,
+        "on-click": "pkill -SIGRTMIN+8 waybar"
+    },
+
+    // Bracket-style Workspaces
+    "hyprland/workspaces": {
+        "on-scroll-up": "hyprctl dispatch workspace r-1",
+        "on-scroll-down": "hyprctl dispatch workspace r+1",
+        "on-click": "activate",
+        "active-only": false,
+        "all-outputs": true,
+        "format": "{icon}",
+        "format-icons": {
+            "1": "[ ]",
+            "2": "[ ]", 
+            "3": "[ ]",
+            "4": "[ ]",
+            "5": "[ ]",
+            "6": "[ ]",
+            "7": "[ ]",
+            "8": "[ ]",
+            "9": "[ ]",
+            "10": "[ ]",
+            "urgent": "[!]",
+            "active": "[⚛]",
+            "default": "[ ]"
+        },
+        "persistent-workspaces": {
+                "*": 5
+        }
+    }
+}

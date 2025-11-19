@@ -1,0 +1,345 @@
+/*
+ * __  __       _   _                       _                  ____  
+ * |  \/  | __ _| |_| |_   __      ____ _ _   _| |__   __ _ _ __|___ \ 
+ * | |\/| |/ _` | __| __| \ \ /\ / / _` | | | | '_ \ / _` | '__| __) |
+ * | |  | | (_| | |_| |_   \ V  V / (_| | |_| | |_) | (_| | |   / __/ 
+ * |_|  |_|\__,_|\__|\__|   \_/\_/ \__,_|\__, |_.__/ \__,_|_|  |_____|
+ *                                       |___/                       
+ *
+ * by Matt (2024) based on ML4W Minimal by Stephan Raabe
+ * -----------------------------------------------------
+*/
+
+/* -----------------------------------------------------
+ * Color Definitions
+ * ----------------------------------------------------- */
+@define-color backgroundlight #FFFFFF;
+@define-color backgrounddark #2E3440;
+@define-color workspacesbackground1 #4C566A;
+@define-color workspacesbackground2 #5E81AC;
+@define-color bordercolor #D8DEE9;
+@define-color textcolor1 #2E3440;
+@define-color textcolor2 #3B4252;
+@define-color textcolor3 #ECEFF4;
+@define-color iconcolor #5E81AC;
+
+/* -----------------------------------------------------
+ * General
+ * ----------------------------------------------------- */
+
+* {
+    font-family: "Fira Sans semibold", FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+    border: none;
+    border-radius: 0px;
+}
+
+window#waybar {
+    background-color: rgba(46, 52, 64, 0.9);
+    border-bottom: 0px solid #ffffff;
+    color: @textcolor3;
+    transition-property: background-color;
+    transition-duration: .5s;
+}
+
+.modules-left {
+    padding-left: 8px;
+    margin-top: 1px;
+    margin-bottom: 1px;
+}
+
+.modules-right {
+    padding-right: 15px;
+    margin-top: 1px;
+    margin-bottom: 1px;
+}
+
+.modules-center {
+    margin-top: 1px;
+    margin-bottom: 1px;
+}
+
+/* -----------------------------------------------------
+ * Workspaces - Hebrew Letters in Rounded Rectangles
+ * ----------------------------------------------------- */
+
+#workspaces {
+    margin: 2px 8px 2px 8px;
+    border: 0px;
+    font-size: 14px;
+    font-weight: bold;
+    color: @textcolor3;
+}
+
+#workspaces button {
+    border: 0px;
+    margin: 1px 1px 1px 1px;
+    padding: 2px 6px 2px 6px;
+    color: @textcolor3;
+    background: @workspacesbackground1;
+    border-radius: 8px;
+    min-width: 18px;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+#workspaces button.active {
+    color: @textcolor3;
+    background: @workspacesbackground2;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+#workspaces button:hover {
+    color: @textcolor3;
+    background: @workspacesbackground2;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.25);
+}
+
+/* -----------------------------------------------------
+ * Custom Arch Logo
+ * ----------------------------------------------------- */
+
+#custom-arch {
+    background-image: url("nietzsche.png");
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 0px 15px 0px 5px;
+    padding: 0px;
+    min-width: 20px;
+    min-height: 20px;
+}
+
+#custom-arch:hover {
+    opacity: 0.8;
+    transition: all 0.3s ease-in-out;
+}
+
+/* -----------------------------------------------------
+ * Custom Weather
+ * ----------------------------------------------------- */
+
+#custom-weather {
+    font-size: 13px;
+    color: @textcolor3;
+    margin: 0px 12px 0px 0px;
+    padding: 0px;
+}
+
+/* -----------------------------------------------------
+ * Tooltips
+ * ----------------------------------------------------- */
+
+tooltip {
+    border-radius: 16px;
+    background-color: @backgrounddark;
+    opacity: 0.9;
+    padding: 20px;
+    margin: 0px;
+    color: @textcolor3;
+}
+
+tooltip label {
+    color: @textcolor3;
+}
+
+/* -----------------------------------------------------
+ * Custom Notification
+ * ----------------------------------------------------- */
+
+#custom-notification {
+    margin: 0px 12px 0px 12px;
+    padding: 0px;
+    font-size: 16px;
+    color: @iconcolor;
+    opacity: 0.8;
+}
+
+#custom-notification:hover {
+    opacity: 1.0;
+    transition: all 0.3s ease-in-out;
+}
+
+/* -----------------------------------------------------
+ * Custom Exit
+ * ----------------------------------------------------- */
+
+#custom-exit {
+    margin: 0px 5px 0px 12px;
+    padding: 0px;
+    font-size: 16px;
+    color: @iconcolor;
+}
+
+#custom-exit:hover {
+    color: #BF616A;
+    transition: all 0.3s ease-in-out;
+}
+
+/* -----------------------------------------------------
+ * Pulseaudio
+ * ----------------------------------------------------- */
+
+#pulseaudio {
+    font-size: 13px;
+    color: @textcolor3;
+    margin: 0px 12px 0px 0px;
+    padding: 0px;
+}
+
+#pulseaudio.muted {
+    color: #BF616A;
+}
+
+#pulseaudio:hover {
+    color: @iconcolor;
+    transition: all 0.3s ease-in-out;
+}
+
+/* -----------------------------------------------------
+ * Window
+ * ----------------------------------------------------- */
+
+#window {
+    margin: 0px 15px 0px 0px;
+    border-radius: 12px;
+    color: @textcolor3;
+    font-size: 14px;
+    font-weight: normal;
+}
+
+window#waybar.empty #window {
+    background-color: transparent;
+}
+
+/* -----------------------------------------------------
+ * Modules
+ * ----------------------------------------------------- */
+
+.modules-left > widget:first-child > #workspaces {
+    margin-left: 0;
+}
+
+.modules-right > widget:last-child > #workspaces {
+    margin-right: 0;
+}
+
+/* -----------------------------------------------------
+ * Bluetooth
+ * ----------------------------------------------------- */
+
+#bluetooth, #bluetooth.on, #bluetooth.connected {
+    font-size: 13px;
+    color: @textcolor3;
+    margin: 0px 12px 0px 0px;
+    padding: 0px;
+}
+
+#bluetooth.off {
+    padding: 0px;
+    margin: 0px;
+}
+
+/* -----------------------------------------------------
+ * Network
+ * ----------------------------------------------------- */
+
+#network {
+    font-size: 13px;
+    color: @textcolor3;
+    margin: 0px 12px 0px 0px;
+    padding: 0px;
+}
+
+#network.ethernet {
+    color: @textcolor3;
+}
+
+#network.wifi {
+    color: @textcolor3;
+}
+
+/* -----------------------------------------------------
+ * Battery
+ * ----------------------------------------------------- */
+
+#battery {
+    font-size: 13px;
+    color: @textcolor3;
+    margin: 0px 12px 0px 0px;
+    padding: 0px;
+}
+
+#battery.charging, #battery.plugged {
+    color: @textcolor3;
+}
+
+#battery.critical:not(.charging) {
+    color: #BF616A;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes blink {
+    to {
+        background-color: @backgrounddark;
+        color: @textcolor3;
+    }
+}
+
+/* -----------------------------------------------------
+ * Clock
+ * ----------------------------------------------------- */
+
+#clock {
+    font-size: 13px;
+    color: @textcolor3;
+    margin: 0px 12px 0px 0px;
+    padding: 0px;
+}
+
+/* -----------------------------------------------------
+ * Tray
+ * ----------------------------------------------------- */
+
+#tray {
+    margin: 0px 12px 0px 0px;
+    padding: 0px;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: #BF616A;
+    border-radius: 6px;
+}
+
+/* -----------------------------------------------------
+ * Custom Updates
+ * ----------------------------------------------------- */
+
+#custom-updates {
+    font-size: 13px;
+    color: @textcolor3;
+    margin: 0px 12px 0px 0px;
+    padding: 0px;
+}
+
+#custom-updates.green {
+    color: @textcolor3;
+}
+
+#custom-updates.yellow {
+    color: #EBCB8B;
+}
+
+#custom-updates.red {
+    color: #BF616A;
+}

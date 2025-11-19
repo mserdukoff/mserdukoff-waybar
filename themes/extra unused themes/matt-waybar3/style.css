@@ -1,0 +1,449 @@
+/*
+ * __  __       _   _                       _                  ____  
+ * |  \/  | __ _| |_| |_   __      ____ _ _   _| |__   __ _ _ __|___ \ 
+ * | |\/| |/ _` | __| __| \ \ /\ / / _` | | | | '_ \ / _` | '__| __) |
+ * | |  | | (_| | |_| |_   \ V  V / (_| | |_| | |_) | (_| | |   / __/ 
+ * |_|  |_|\__,_|\__|\__|   \_/\_/ \__,_|\__, |_.__/ \__,_|_|  |_____|
+ *                                       |___/                       
+ *
+ * by Matt (2024) based on ML4W Minimal by Stephan Raabe
+ * -----------------------------------------------------
+*/
+
+/* -----------------------------------------------------
+ * Nuclear Reactor Theme Color Definitions
+ * ----------------------------------------------------- */
+@define-color backgroundlight #1a1a1a;
+@define-color backgrounddark #0d0d0d;
+@define-color workspacesbackground1 #2a2a2a;
+@define-color workspacesbackground2 #4a6741;
+@define-color bordercolor #4a6741;
+@define-color textcolor1 #4a6741;
+@define-color textcolor2 #c0c0c0;
+@define-color textcolor3 #8a9a8a;
+@define-color iconcolor #6a7a6a;
+@define-color accent1 #ffaa00;
+@define-color accent2 #00ff88;
+@define-color accent3 #00aaff;
+@define-color warning #ff4444;
+@define-color success #00ff88;
+@define-color nuclear #ffaa00;
+@define-color radiation #00ff88;
+
+/* -----------------------------------------------------
+ * General
+ * ----------------------------------------------------- */
+
+* {
+    font-family: "JetBrains Mono", "Courier New", "Liberation Mono", monospace, FontAwesome;
+    border: none;
+    border-radius: 0px;
+    font-weight: bold;
+}
+
+window#waybar {
+    background: #3a3d3a;
+    border-bottom: 1px solid #2a2d2a;
+    color: @textcolor3;
+    transition-property: background-color;
+    transition-duration: .5s;
+}
+
+.modules-left {
+    padding-left: 4px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.modules-right {
+    padding-right: 8px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.modules-center {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+/* -----------------------------------------------------
+ * Workspaces - Analog Terminal Style
+ * ----------------------------------------------------- */
+
+#workspaces {
+    margin: 1px 4px 1px 4px;
+    border: 0px;
+    font-size: 12px;
+    font-weight: bold;
+    color: @textcolor3;
+    font-family: "JetBrains Mono", monospace;
+}
+
+#workspaces button {
+    border: none;
+    margin: 0px 2px 0px 2px;
+    padding: 2px 4px 2px 4px;
+    color: @textcolor3;
+    background: transparent;
+    border-radius: 0px;
+    min-width: 24px;
+    transition: all 0.2s ease-in-out;
+    text-shadow: 0 0 3px rgba(138, 154, 138, 0.5);
+    font-family: "JetBrains Mono", monospace;
+}
+
+#workspaces button.active {
+    color: @nuclear;
+    background: transparent;
+    border: none;
+    text-shadow: 0 0 6px rgba(255, 170, 0, 0.9);
+    animation: nuclear_pulse 2s infinite;
+}
+
+#workspaces button:hover {
+    color: @radiation;
+    background: transparent;
+    border: none;
+    text-shadow: 0 0 5px rgba(0, 255, 136, 0.8);
+}
+
+@keyframes pulse {
+    0% { opacity: 0.8; }
+    50% { opacity: 1.0; }
+    100% { opacity: 0.8; }
+}
+
+@keyframes nuclear_pulse {
+    0% { 
+        text-shadow: 0 0 6px rgba(255, 170, 0, 0.9);
+        opacity: 0.8; 
+    }
+    50% { 
+        text-shadow: 0 0 12px rgba(255, 170, 0, 1.0), 0 0 20px rgba(255, 170, 0, 0.5);
+        opacity: 1.0; 
+    }
+    100% { 
+        text-shadow: 0 0 6px rgba(255, 170, 0, 0.9);
+        opacity: 0.8; 
+    }
+}
+
+/* -----------------------------------------------------
+ * Custom Arch Logo - Analog Terminal Style
+ * ----------------------------------------------------- */
+
+#custom-arch {
+    font-size: 16px;
+    color: #1793d1;
+    font-weight: bold;
+    margin: 0px 8px 0px 4px;
+    padding: 2px 4px;
+    background: transparent;
+    border: none;
+    border-radius: 0px;
+    text-shadow: 0 0 4px rgba(23, 147, 209, 0.6);
+}
+
+#custom-arch:hover {
+    color: #66b3ff;
+    text-shadow: 0 0 6px rgba(102, 179, 255, 0.8);
+    transition: all 0.3s ease-in-out;
+}
+
+/* -----------------------------------------------------
+ * Custom Weather - Analog Display Style
+ * ----------------------------------------------------- */
+
+#custom-weather {
+    font-size: 11px;
+    color: @textcolor3;
+    margin: 0px 6px 0px 0px;
+    padding: 1px 3px;
+    background: transparent;
+    border: none;
+    border-radius: 0px;
+    text-shadow: 0 0 3px rgba(74, 103, 65, 0.5);
+}
+
+/* -----------------------------------------------------
+ * Tooltips - Analog Terminal Style
+ * ----------------------------------------------------- */
+
+tooltip {
+    border-radius: 0px;
+    background: linear-gradient(135deg, @backgrounddark 0%, #1a1a1a 100%);
+    border: 2px solid @bordercolor;
+    opacity: 1.0;
+    padding: 15px;
+    margin: 0px;
+    color: @textcolor3;
+    font-family: "JetBrains Mono", monospace;
+    text-shadow: 0 0 5px rgba(0, 255, 65, 0.8);
+    box-shadow: 0 0 20px rgba(0, 255, 65, 0.4), inset 0 0 10px rgba(0, 0, 0, 0.6);
+}
+
+tooltip label {
+    color: @textcolor3;
+    text-shadow: 0 0 5px rgba(0, 255, 65, 0.8);
+}
+
+/* -----------------------------------------------------
+ * Custom Notification
+ * ----------------------------------------------------- */
+
+#custom-notification {
+    margin: 0px 6px 0px 6px;
+    padding: 1px 3px;
+    font-size: 12px;
+    color: @accent3;
+    background: transparent;
+    border: none;
+    border-radius: 0px;
+    text-shadow: 0 0 3px rgba(74, 106, 122, 0.6);
+}
+
+#custom-notification:hover {
+    color: @accent1;
+    text-shadow: 0 0 6px rgba(138, 90, 58, 0.8);
+    transition: all 0.3s ease-in-out;
+}
+
+/* -----------------------------------------------------
+ * Custom Exit
+ * ----------------------------------------------------- */
+
+#custom-exit {
+    margin: 0px 4px 0px 6px;
+    padding: 1px 3px;
+    font-size: 12px;
+    color: @warning;
+    background: transparent;
+    border: none;
+    border-radius: 0px;
+    text-shadow: 0 0 3px rgba(138, 74, 74, 0.6);
+}
+
+#custom-exit:hover {
+    color: @accent1;
+    text-shadow: 0 0 6px rgba(138, 90, 58, 0.8);
+    transition: all 0.3s ease-in-out;
+}
+
+/* -----------------------------------------------------
+ * Pulseaudio
+ * ----------------------------------------------------- */
+
+#pulseaudio {
+    font-size: 11px;
+    color: @textcolor3;
+    margin: 0px 6px 0px 0px;
+    padding: 1px 3px;
+    background: transparent;
+    border: none;
+    border-radius: 0px;
+    text-shadow: 0 0 3px rgba(138, 154, 138, 0.5);
+}
+
+#pulseaudio.muted {
+    color: @warning;
+    text-shadow: 0 0 3px rgba(138, 74, 74, 0.6);
+}
+
+#pulseaudio:hover {
+    color: @accent3;
+    text-shadow: 0 0 4px rgba(74, 106, 122, 0.7);
+    transition: all 0.3s ease-in-out;
+}
+
+/* -----------------------------------------------------
+ * Window
+ * ----------------------------------------------------- */
+
+#window {
+    margin: 0px 15px 0px 0px;
+    border-radius: 12px;
+    color: @textcolor3;
+    font-size: 14px;
+    font-weight: normal;
+}
+
+window#waybar.empty #window {
+    background-color: transparent;
+}
+
+/* -----------------------------------------------------
+ * Modules
+ * ----------------------------------------------------- */
+
+.modules-left > widget:first-child > #workspaces {
+    margin-left: 0;
+}
+
+.modules-right > widget:last-child > #workspaces {
+    margin-right: 0;
+}
+
+/* -----------------------------------------------------
+ * Bluetooth
+ * ----------------------------------------------------- */
+
+#bluetooth, #bluetooth.on, #bluetooth.connected {
+    font-size: 11px;
+    color: @textcolor3;
+    margin: 0px 6px 0px 0px;
+    padding: 1px 3px;
+    background: transparent;
+    border: none;
+    border-radius: 0px;
+    text-shadow: 0 0 3px rgba(138, 154, 138, 0.5);
+}
+
+#bluetooth.off {
+    color: @warning;
+    text-shadow: 0 0 3px rgba(138, 74, 74, 0.6);
+    padding: 1px 3px;
+    margin: 0px 6px 0px 0px;
+    background: transparent;
+    border: none;
+    border-radius: 0px;
+}
+
+/* -----------------------------------------------------
+ * Network
+ * ----------------------------------------------------- */
+
+#network {
+    font-size: 11px;
+    color: @textcolor3;
+    margin: 0px 6px 0px 0px;
+    padding: 1px 3px;
+    background: transparent;
+    border: none;
+    border-radius: 0px;
+    text-shadow: 0 0 3px rgba(138, 154, 138, 0.5);
+}
+
+#network.ethernet {
+    color: @accent3;
+    text-shadow: 0 0 4px rgba(74, 106, 122, 0.6);
+}
+
+#network.wifi {
+    color: @textcolor3;
+    text-shadow: 0 0 3px rgba(138, 154, 138, 0.5);
+}
+
+/* -----------------------------------------------------
+ * Battery
+ * ----------------------------------------------------- */
+
+#battery {
+    font-size: 11px;
+    color: @textcolor3;
+    margin: 0px 6px 0px 0px;
+    padding: 1px 3px;
+    background: transparent;
+    border: none;
+    border-radius: 0px;
+    text-shadow: 0 0 3px rgba(138, 154, 138, 0.5);
+}
+
+#battery.charging, #battery.plugged {
+    color: @accent2;
+    text-shadow: 0 0 4px rgba(154, 122, 74, 0.6);
+}
+
+#battery.critical:not(.charging) {
+    color: @warning;
+    text-shadow: 0 0 6px rgba(255, 68, 68, 0.9);
+    animation-name: nuclear_blink;
+    animation-duration: 0.8s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes blink {
+    to {
+        color: @backgrounddark;
+        background-color: @warning;
+        text-shadow: 0 0 4px rgba(0, 0, 0, 0.8);
+    }
+}
+
+@keyframes nuclear_blink {
+    to {
+        color: @backgrounddark;
+        background-color: @warning;
+        text-shadow: 0 0 8px rgba(255, 68, 68, 1.0), 0 0 15px rgba(255, 68, 68, 0.6);
+    }
+}
+
+/* -----------------------------------------------------
+ * Clock
+ * ----------------------------------------------------- */
+
+#clock {
+    font-size: 11px;
+    color: @textcolor3;
+    margin: 0px 6px 0px 0px;
+    padding: 1px 3px;
+    background: transparent;
+    border: none;
+    border-radius: 0px;
+    text-shadow: 0 0 3px rgba(138, 154, 138, 0.5);
+    font-family: "JetBrains Mono", monospace;
+    font-weight: bold;
+}
+
+/* -----------------------------------------------------
+ * Tray
+ * ----------------------------------------------------- */
+
+#tray {
+    margin: 0px 6px 0px 0px;
+    padding: 1px 3px;
+    background: transparent;
+    border: none;
+    border-radius: 0px;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: @warning;
+    border-radius: 0px;
+}
+
+/* -----------------------------------------------------
+ * Custom Updates
+ * ----------------------------------------------------- */
+
+#custom-updates {
+    font-size: 11px;
+    color: @textcolor3;
+    margin: 0px 6px 0px 0px;
+    padding: 1px 3px;
+    background: transparent;
+    border: none;
+    border-radius: 0px;
+    text-shadow: 0 0 3px rgba(138, 154, 138, 0.5);
+}
+
+#custom-updates.green {
+    color: @success;
+    text-shadow: 0 0 4px rgba(90, 122, 90, 0.6);
+}
+
+#custom-updates.yellow {
+    color: @accent2;
+    text-shadow: 0 0 4px rgba(154, 122, 74, 0.6);
+}
+
+#custom-updates.red {
+    color: @warning;
+    text-shadow: 0 0 4px rgba(138, 74, 74, 0.6);
+}

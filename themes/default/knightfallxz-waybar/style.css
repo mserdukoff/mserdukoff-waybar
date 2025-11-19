@@ -1,0 +1,228 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family: JetBrainsMono Nerd Font;
+  font-weight: bold;
+  font-size: 16px;
+  background-color: #1a1c2b; /* Reduced opacity background */ 
+}
+
+.modules-right {
+  background-color: transparent;
+}
+
+window#waybar {
+  background-color: rgba(0, 0, 0, 0);
+  border-radius: 0;
+  margin: 0;
+  padding: 0;
+}
+
+#workspaces {
+  background: transparent;
+  border-radius: 6px;
+  margin: 1px 3px;
+  padding: 0px;
+}
+
+#custom-launcher {
+  font-size: 16px;
+  color: #00bfff;
+  padding: 3px 4px;
+  margin: 1px 3px;
+  background-color: transparent;
+}
+
+#cpu,
+#memory,
+#temperature {
+  font-size: 14px;
+  background: transparent;
+  margin: 1px 3px;
+  padding: 3px 4px;
+}
+
+#cpu {
+  color: #eed49f;
+}
+
+#memory {
+  color: #a6da95;
+}
+
+#temperature {
+  color: #8aadf4;
+}
+
+#custom-window-name {
+  color: #68b0d6;
+  padding: 3px 6px;
+  margin: 1px 6px;
+  background-color: transparent;
+}
+
+#custom-pacman-update-icon {
+  background-color: #68b0d6;
+  color: #181926;
+  padding: 3px 6px;
+  margin: 1px 6px;
+  border-radius: 4px;
+}
+
+#custom-pacman-update {
+  color: #8bd5ca;
+  padding: 3px 6px;
+  margin: 1px 6px;
+}
+
+#workspaces button {
+  background: transparent;
+  border-radius: 3px;
+  margin: 1px 1px;
+  padding: 2px 3px;
+  border: none;
+  box-shadow: none;
+  min-width: 16px;
+  font-size: 13px;
+}
+
+#workspaces button {
+  color: #6e738d;
+  font-family: 'JetBrainsMono Nerd Font', monospace;
+}
+
+#workspaces button:nth-child(1) {
+  color: #8aadf4;
+}
+
+#workspaces button:nth-child(2) {
+  color: #ed8796;
+}
+
+#workspaces button:nth-child(3) {
+  color: #a6da95;
+}
+
+#workspaces button:nth-child(4) {
+  color: #c6a0f6;
+}
+
+#workspaces button:nth-child(5) {
+  color: #f4dbd6;
+}
+
+#workspaces button:nth-child(6) {
+  color: #f5a97f;
+}
+
+#workspaces button:nth-child(7) {
+  color: #8bd5ca;
+}
+
+#workspaces button:nth-child(8) {
+  color: #68b0d6;
+}
+
+#workspaces button:nth-child(9) {
+  color: #aab1d3;
+}
+
+#workspaces button.active {
+  background: transparent;
+  color: #46c880;
+  font-weight: bold;
+}
+
+#workspaces button.urgent {
+  background: transparent;
+  color: #f38ba8;
+  font-weight: bold;
+}
+
+#workspaces button:hover {
+  background: transparent;
+  color: #8aadf4;
+}
+
+
+#battery {
+  color: #a6da95;
+  padding: 3px 4px;
+  margin: 1px 3px;
+}
+
+#pulseaudio,
+#backlight {
+  font-size: 14px;
+  background-color: transparent;
+  padding: 3px 4px;
+  margin: 1px 3px;
+}
+
+#backlight {
+  color: #eed49f;
+}
+
+#pulseaudio {
+  color: #91d7e3;
+}
+
+
+#custom-pacman {
+  color: #68b0d6;
+  background-color: transparent;
+  padding: 3px 4px;
+  margin: 1px 3px;
+}
+
+#network {
+  color: #c6a0f6;
+  background-color: transparent;
+  padding: 3px 4px;
+  margin: 1px 3px;
+}
+
+
+
+#disk {
+  color: #68b0d6;
+  background-color: transparent;
+  padding: 3px 4px;
+  margin: 1px 3px;
+}
+
+
+
+
+#clock {
+  padding: 3px 4px;
+  margin: 1px 3px;
+}
+
+#custom-updates,
+#custom-notification,
+#tray {
+  background-color: transparent;
+  padding: 3px 4px;
+  margin: 1px 3px;
+  font-size: 14px;
+}
+
+#custom-updates {
+  color: #f5a97f;
+}
+
+#custom-notification {
+  color: #8bd5ca;
+}
+
+#custom-playerctl {
+  color: #46c880;
+  background-color: transparent;
+  padding: 3px 4px;
+  margin: 1px 3px;
+  font-size: 13px;
+}
+
+
+/*# sourceMappingURL=style.css.map */

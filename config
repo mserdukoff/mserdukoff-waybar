@@ -242,7 +242,7 @@
   },
 
   "custom/power": {
-    "format": "⏻",
+    "format": "PWR",
     "on-click": "wlogout",
     "tooltip-format": "Power Menu\nLeft: Open power menu\nRight: Lock screen",
     "on-click-right": "hyprlock"

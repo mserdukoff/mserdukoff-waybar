@@ -226,11 +226,12 @@ window#waybar {
 
 
 #custom-power {
-  color: #f38ba8;
+  color: #ff4444;
   background-color: transparent;
-  padding: 3px 4px;
-  margin: 1px 3px;
+  padding: 1px 2px;
+  margin: 1px 2px 1px 2px;
   font-size: 16px;
+  font-weight: bold;
 }
 
 #custom-power:hover {

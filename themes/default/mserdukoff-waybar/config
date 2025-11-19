@@ -183,7 +183,7 @@
     "format": "  {}",
     "escape": true,
     "return-type": "json",
-    "exec": "~/.config/waybar/themes/default/knightfallxz-waybar/scripts/update-sys",
+    "exec": "~/.config/waybar/themes/default/mserdukoff-waybar/scripts/update-sys",
     "interval": 1800,
     "signal": 1,
     "hide-empty-text": true,

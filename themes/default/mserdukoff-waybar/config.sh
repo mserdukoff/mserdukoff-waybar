@@ -1,9 +1,9 @@
 #!/bin/bash
-# KnightfallXZ Waybar Configuration
+# MSerdukoff Waybar Configuration
 # Based on https://github.com/knightfallxz/Hyprland-Custom-Configuration
 
 # Theme name
-theme_name="KnightfallXZ Waybar"
+theme_name="MSerdukoff Waybar"
 
 # Theme description
 theme_description="A modern waybar configuration with system monitoring, media controls, and beautiful styling"
@@ -54,7 +54,7 @@ apply_theme() {
     fi
     
     # Copy configuration files
-    local theme_dir="$HOME/.config/waybar/themes/default/knightfallxz-waybar"
+    local theme_dir="$HOME/.config/waybar/themes/default/mserdukoff-waybar"
     
     if [ -f "$theme_dir/config" ] && [ -f "$theme_dir/style.css" ]; then
         cp "$theme_dir/config" "$HOME/.config/waybar/"

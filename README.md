@@ -1,12 +1,11 @@
 # MSerdukoff Waybar Configuration
 
-A beautiful and functional waybar configuration featuring the KnightfallXZ theme with perfect spacing and modern aesthetics.
+A beautiful and functional waybar configuration with perfect spacing and modern aesthetics.
 
-## 🎨 Featured Themes
+## 🎨 Featured Theme
 
-### Default Themes (Active)
-- **KnightfallXZ Waybar** - Main theme with compact spacing, system monitoring, and media controls
-- **KnightfallXZ Tokyo Night** - Minimal Tokyo Night variant with clean aesthetics
+### Default Theme
+- **MSerdukoff Waybar** - Modern theme with compact spacing, system monitoring, and media controls
 
 ### Features
 - 🖥️ **Workspace indicators** with bracket-style design `[1][2][*][4][5]`
@@ -21,14 +20,9 @@ A beautiful and functional waybar configuration featuring the KnightfallXZ theme
 
 ## 🚀 Quick Start
 
-### Apply Main Theme
+### Apply Theme
 ```bash
-cd ~/.config/waybar/themes/default/knightfallxz-waybar && ./config.sh
-```
-
-### Apply Tokyo Night Theme
-```bash
-cd ~/.config/waybar/themes/default/knightfallxz-tokyo && ./config.sh
+cd ~/.config/waybar/themes/default/mserdukoff-waybar && ./config.sh
 ```
 
 ## 📁 Structure
@@ -36,9 +30,8 @@ cd ~/.config/waybar/themes/default/knightfallxz-tokyo && ./config.sh
 ```
 waybar/
 ├── themes/
-│   ├── default/                    # Active themes
-│   │   ├── knightfallxz-waybar/   # Main theme
-│   │   └── knightfallxz-tokyo/    # Tokyo Night variant
+│   ├── default/
+│   │   └── mserdukoff-waybar/     # Main theme
 │   └── extra unused themes/       # Archived themes
 ├── colors.css                     # Color definitions
 ├── modules.json                   # Module configurations

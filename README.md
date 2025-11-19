@@ -1,4 +1,4 @@
-# MSerdukoff Waybar Configuration
+# mserdukoff Waybar Configuration
 
 A beautiful and functional waybar configuration with perfect spacing and modern aesthetics.
 

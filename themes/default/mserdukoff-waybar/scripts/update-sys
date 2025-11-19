@@ -9,12 +9,12 @@ if [ ! -f /etc/arch-release ]; then
 fi
 
 # Calculate updates for each service
-if command -v paru &> /dev/null; then
-    AUR=$(paru -Qua 2>/dev/null | wc -l)
-    ALL=$(paru -Qet 2>/dev/null | wc -l)
-elif command -v yay &> /dev/null; then
+if command -v yay &> /dev/null; then
     AUR=$(yay -Qua 2>/dev/null | wc -l)
     ALL=$(yay -Qet 2>/dev/null | wc -l)
+elif command -v paru &> /dev/null; then
+    AUR=$(paru -Qua 2>/dev/null | wc -l)
+    ALL=$(paru -Qet 2>/dev/null | wc -l)
 else
     AUR=0
     ALL=$(pacman -Qet 2>/dev/null | wc -l)
@@ -29,10 +29,10 @@ esac
 
 # If the parameter is "update", update all services
 if [ "$1" = "update" ]; then
-    if command -v paru &> /dev/null; then
-        kitty paru -Syu
-    elif command -v yay &> /dev/null; then
+    if command -v yay &> /dev/null; then
         kitty yay -Syu
+    elif command -v paru &> /dev/null; then
+        kitty paru -Syu
     else
         kitty sudo pacman -Syu
     fi

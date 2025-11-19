@@ -25,7 +25,8 @@
     "pulseaudio",
     "network",
     "custom/notification",
-    "clock"
+    "clock",
+    "custom/power"
   ], 
   "custom/playerctl": {
       "format": "{icon} <span>{text}</span>",
@@ -238,5 +239,12 @@
 
   "custom/wrap-right": {
     "format": "<b>]</b>"
+  },
+
+  "custom/power": {
+    "format": "",
+    "on-click": "wlogout",
+    "tooltip-format": "Power Menu\nLeft: Open power menu\nRight: Lock screen",
+    "on-click-right": "hyprlock"
   }
 }

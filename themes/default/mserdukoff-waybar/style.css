@@ -225,4 +225,16 @@ window#waybar {
 }
 
 
+#custom-power {
+  color: #f38ba8;
+  background-color: transparent;
+  padding: 3px 4px;
+  margin: 1px 3px;
+  font-size: 16px;
+}
+
+#custom-power:hover {
+  color: #ff6b85;
+}
+
 /*# sourceMappingURL=style.css.map */

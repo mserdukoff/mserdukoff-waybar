@@ -2,6 +2,10 @@
 
 A beautiful and functional waybar configuration with perfect spacing and modern aesthetics.
 
+![MSerdukoff Waybar Screenshot](mserdukoff-waybar-screenshot.jpg)
+
+*Featuring compact spacing, system monitoring, workspace indicators, and media controls*
+
 ## 🎨 Featured Theme
 
 ### Default Theme

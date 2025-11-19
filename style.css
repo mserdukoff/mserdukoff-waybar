@@ -127,6 +127,7 @@ window#waybar {
   color: #aab1d3;
 }
 
+
 #workspaces button.active {
   background: transparent;
   color: #46c880;

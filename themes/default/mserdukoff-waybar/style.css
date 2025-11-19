@@ -129,8 +129,43 @@ window#waybar {
 
 #workspaces button.active {
   background: transparent;
-  color: #46c880;
   font-weight: bold;
+}
+
+#workspaces button:nth-child(1).active {
+  color: #8aadf4;
+}
+
+#workspaces button:nth-child(2).active {
+  color: #ed8796;
+}
+
+#workspaces button:nth-child(3).active {
+  color: #a6da95;
+}
+
+#workspaces button:nth-child(4).active {
+  color: #c6a0f6;
+}
+
+#workspaces button:nth-child(5).active {
+  color: #f4dbd6;
+}
+
+#workspaces button:nth-child(6).active {
+  color: #f5a97f;
+}
+
+#workspaces button:nth-child(7).active {
+  color: #8bd5ca;
+}
+
+#workspaces button:nth-child(8).active {
+  color: #68b0d6;
+}
+
+#workspaces button:nth-child(9).active {
+  color: #aab1d3;
 }
 
 #workspaces button.urgent {

@@ -87,7 +87,9 @@
             "default": "[ ]"
         },
         "persistent-workspaces": {
-                "*": 5
+                "1": [],
+                "2": [],
+                "3": []
         }
     }
 }

@@ -247,6 +247,18 @@ window#waybar {
   color: #f5a97f;
 }
 
+#custom-updates.green {
+  color: #a6da95;
+}
+
+#custom-updates.yellow {
+  color: #eed49f;
+}
+
+#custom-updates.red {
+  color: #ed8796;
+}
+
 #custom-notification {
   color: #8bd5ca;
 }

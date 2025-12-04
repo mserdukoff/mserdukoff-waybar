@@ -17,8 +17,12 @@ flock -n 200 || exit 0
 # Quit all running waybar instances
 # -----------------------------------------------------
 killall waybar || true
+killall weather-loop.sh || true
 pkill waybar || true
 sleep 0.5
+
+# Start SwayNC weather updater
+~/.config/swaync/weather-loop.sh &
 
 # Pre-load weather data for matt-waybar3 theme
 if [[ "$themestyle" == *"matt-waybar3"* ]]; then
